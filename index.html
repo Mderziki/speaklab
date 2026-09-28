@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpeakLab — Practice Before You Present</title>
+<meta name="description" content="SpeakLab is an AI public speaking simulator that lets you practice presentations, pitches, speeches, and interviews with a simulated audience. Join the waitlist.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://speaklab.live/">
+
+<meta property="og:title" content="SpeakLab — Practice Before You Present">
+<meta property="og:description" content="Rehearse presentations, pitches, speeches, interviews, and teaching sessions in front of a simulated AI audience before the real moment.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="logo.ico" sizes="any">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide-static/0.372.0/font/lucide.min.css" onerror="this.remove()">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.372.0/lucide.min.js"></script>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="seo-content.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo" aria-label="SpeakLab home">
+      <img src="logo.png" width="28" height="28" alt="">
+      <span>SpeakLab</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#product">Product</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#scenarios">Scenarios</a>
+      <a href="guides/index.html">Guides</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <button class="btn btn-primary nav-cta" data-open-modal>Join the Waitlist</button>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ MOBILE MENU ============ -->
+<div class="mobile-menu" id="mobile-menu">
+  <nav aria-label="Mobile">
+    <a href="#product">Product</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#scenarios">Scenarios</a>
+    <a href="guides/index.html">Guides</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <button class="btn btn-primary" data-open-modal>Join the Waitlist</button>
+</div>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-inner hero-intro">
+      <p class="eyebrow reveal">AI Public Speaking Simulator</p>
+      <h1 class="hero-headline reveal">Practice Before</h1>
+    </div>
+
+    <!-- SPEAKLAB HERO MOTION GRAPHIC -->
+    <div class="hero-product-demo" aria-label="SpeakLab product experience preview">
+      <div class="hero-product-glow" aria-hidden="true"></div>
+
+      <div class="hero-dashboard-shell">
+        <img class="hero-dashboard" src="assets/hero/main-dashboard.png" alt="SpeakLab AI public speaking simulator">
+      </div>
+
+      <div class="hero-popup-shell hero-analysis-shell">
+        <img class="hero-popup hero-analysis" src="assets/hero/speaking-analysis.png" alt="AI speaking analysis">
+      </div>
+
+      <div class="hero-popup-shell hero-reactions-shell">
+        <img class="hero-popup hero-reactions" src="assets/hero/audience-reactions.png" alt="AI audience reactions">
+      </div>
+
+      <div class="hero-popup-shell hero-feedback-shell">
+        <img class="hero-popup hero-feedback" src="assets/hero/ai-coach-feedback.png" alt="AI speaking coach feedback">
+      </div>
+    </div>
+
+    <div class="hero-inner hero-outro">
+      <p class="hero-headline reveal">You Present.</p>
+      <p class="hero-sub reveal">Step into a simulated audience and rehearse your presentation before the real moment.</p>
+      <div class="hero-actions reveal">
+        <button class="btn btn-primary btn-lg" data-open-modal>Join the Waitlist</button>
+        <p class="hero-microcopy">Be among the first to experience SpeakLab.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST STATEMENT ============ -->
+  <section class="trust">
+    <p class="trust-label reveal">Built around one simple idea</p>
+    <h2 class="trust-statement reveal">The best rehearsal is one that feels real.</h2>
+  </section>
+
+  <!-- ============ PRODUCT CONCEPT ============ -->
+  <section class="product-showcase" id="product">
+    <div class="product-showcase-heading">
+      <p class="product-eyebrow reveal">AI Audience Simulation</p>
+      <h2 class="reveal">An audience that reacts<br>while you practice.</h2>
+      <p class="reveal">Practice presentations, pitches and speeches with a simulated audience. See when people stay engaged, become confused, lose attention or have questions.</p>
+    </div>
+
+    <!-- SPEAKLAB PRODUCT MOTION GRAPHIC -->
+    <div class="product-motion-scene" aria-label="SpeakLab simulated audience product preview">
+      <div class="product-motion-glow" aria-hidden="true"></div>
+
+      <div class="product-main-shell">
+        <img src="assets/product/audience-session.png" class="product-main-panel" alt="SpeakLab simulated AI audience practice session">
+      </div>
+
+      <div class="product-card-shell product-card-1-shell">
+        <img src="assets/product/practice-schedule.png" class="product-feature-card product-card-1" alt="Practice public speaking on your schedule">
+      </div>
+
+      <div class="product-card-shell product-card-2-shell">
+        <img src="assets/product/real-reactions.png" class="product-feature-card product-card-2" alt="Experience realistic AI audience reactions">
+      </div>
+
+      <div class="product-card-shell product-card-3-shell">
+        <img src="assets/product/learn-repeat.png" class="product-feature-card product-card-3" alt="Learn from every public speaking rehearsal">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="how" id="how-it-works">
+    <h2 class="reveal">From nervous to prepared.</h2>
+
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <span class="how-num">01</span>
+        <h3>Choose your moment</h3>
+        <p>Presentation, pitch, interview, speech, teaching, or content.</p>
+      </div>
+      <div class="how-step reveal">
+        <span class="how-num">02</span>
+        <h3>Enter the room</h3>
+        <p>Face a simulated audience designed around your scenario.</p>
+      </div>
+      <div class="how-step reveal">
+        <span class="how-num">03</span>
+        <h3>Speak naturally</h3>
+        <p>Present using your voice and camera.</p>
+      </div>
+      <div class="how-step reveal">
+        <span class="how-num">04</span>
+        <h3>Improve</h3>
+        <p>Understand where your delivery and content can become stronger, then try again.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AUDIENCE REACTIONS ============ -->
+  <section class="reactions">
+    <div class="reactions-copy">
+      <h2 class="reveal">Your audience doesn't just listen.</h2>
+      <p class="reactions-big reveal">They react.</p>
+      <p class="reveal">Some stay engaged. Some become confused. Some ask questions. Some challenge your ideas.</p>
+    </div>
+
+    <div class="reactions-row reveal" aria-hidden="true">
+      <div class="reaction-card">
+        <span class="reaction-icon">🙂</span>
+        <span class="reaction-label">Engaged</span>
+      </div>
+      <div class="reaction-card">
+        <span class="reaction-icon">🤔</span>
+        <span class="reaction-label">Confused</span>
+      </div>
+      <div class="reaction-card">
+        <span class="reaction-icon">✋</span>
+        <span class="reaction-label">Question</span>
+      </div>
+      <div class="reaction-card">
+        <span class="reaction-icon">😐</span>
+        <span class="reaction-label">Distracted</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCENARIOS ============ -->
+  <section class="scenarios" id="scenarios">
+    <h2 class="reveal">Whatever you're preparing for.</h2>
+
+    <div class="scenario-grid">
+      <div class="scenario-item reveal">
+        <h3>Presentation</h3>
+        <p>Walk into your next presentation prepared.</p>
+      </div>
+      <div class="scenario-item reveal">
+        <h3>Job Interview</h3>
+        <p>Practice explaining your ideas under pressure.</p>
+      </div>
+      <div class="scenario-item reveal">
+        <h3>University</h3>
+        <p>Rehearse your next academic presentation.</p>
+      </div>
+      <div class="scenario-item reveal">
+        <h3>Investor Pitch</h3>
+        <p>Practice communicating your startup clearly.</p>
+      </div>
+      <div class="scenario-item reveal">
+        <h3>Teaching</h3>
+        <p>Explain complex ideas to a simulated classroom.</p>
+      </div>
+      <div class="scenario-item reveal">
+        <h3>Public Speaking</h3>
+        <p>Build confidence through repetition.</p>
+      </div>
+      <div class="scenario-item reveal">
+        <h3>Content Creation</h3>
+        <p>Practice your delivery before hitting record.</p>
+      </div>
+      <div class="scenario-item reveal">
+        <h3>Business</h3>
+        <p>Prepare for important meetings and presentations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DIFFICULTY ============ -->
+  <section class="difficulty">
+    <h2 class="reveal">The room gets harder as you get better.</h2>
+    <p class="reveal">Start with a supportive audience. Work your way toward the situations that make real presentations difficult.</p>
+
+    <div class="difficulty-track reveal">
+      <div class="difficulty-step"><span class="d-num">01</span><span class="d-label">Friendly</span></div>
+      <div class="difficulty-arrow" aria-hidden="true">→</div>
+      <div class="difficulty-step"><span class="d-num">02</span><span class="d-label">Distracted</span></div>
+      <div class="difficulty-arrow" aria-hidden="true">→</div>
+      <div class="difficulty-step"><span class="d-num">03</span><span class="d-label">Difficult</span></div>
+      <div class="difficulty-arrow" aria-hidden="true">→</div>
+      <div class="difficulty-step"><span class="d-num">04</span><span class="d-label">Q&amp;A</span></div>
+      <div class="difficulty-arrow" aria-hidden="true">→</div>
+      <div class="difficulty-step"><span class="d-num">05</span><span class="d-label">Challenging</span></div>
+      <div class="difficulty-arrow" aria-hidden="true">→</div>
+      <div class="difficulty-step"><span class="d-num">06</span><span class="d-label">High Pressure</span></div>
+    </div>
+  </section>
+
+  <!-- ============ FEEDBACK ============ -->
+  <section class="feedback">
+    <h2 class="reveal">More than a score.</h2>
+    <p class="reveal">SpeakLab is designed to show you what happened during your presentation—not just give you a number.</p>
+
+    <div class="feedback-examples reveal">
+      <p class="feedback-note">Illustrative examples of the kind of feedback SpeakLab is designed to surface</p>
+      <ul>
+        <li>"Your pace increased during the conclusion."</li>
+        <li>"Your second point created confusion."</li>
+        <li>"Your audience engagement dropped during the technical explanation."</li>
+        <li>"You used filler words repeatedly."</li>
+      </ul>
+    </div>
+
+    <p class="feedback-repeat reveal">Practice. Improve. Repeat.</p>
+  </section>
+
+  <!-- ============ PRACTICE LOOP ============ -->
+  <section class="loop">
+    <h2 class="reveal">Confidence comes from repetition.</h2>
+    <p class="reveal">SpeakLab turns preparation into practice you can repeat whenever you need it.</p>
+
+    <div class="loop-chain reveal">
+      <span>Practice</span>
+      <span class="loop-arrow" aria-hidden="true">↓</span>
+      <span>Present</span>
+      <span class="loop-arrow" aria-hidden="true">↓</span>
+      <span>Understand</span>
+      <span class="loop-arrow" aria-hidden="true">↓</span>
+      <span>Improve</span>
+      <span class="loop-arrow" aria-hidden="true">↓</span>
+      <span>Repeat</span>
+    </div>
+  </section>
+
+  <!-- ============ ENGLISH USE CASE ============ -->
+  <section class="english">
+    <h2 class="reveal">Speak more. Learn faster.</h2>
+    <p class="reveal">Practice English through real speaking situations—presentations, interviews, pitches, and professional conversations.</p>
+  </section>
+
+
+  <!-- ============ PUBLIC SPEAKING GUIDES ============ -->
+  <section class="seo-links-section" id="guides">
+    <h2 class="reveal">Learn, practice, improve.</h2>
+    <p class="seo-links-intro reveal">Explore practical public speaking guides designed around the same idea as SpeakLab: focused rehearsal, useful feedback, and repetition.</p>
+    <div class="seo-link-grid">
+      <a class="seo-link-card reveal" href="guides/ai-public-speaking-coach.html"><h3>AI Public Speaking Coach</h3><p>How AI can support repeatable speech and presentation practice.</p></a>
+      <a class="seo-link-card reveal" href="guides/public-speaking-practice.html"><h3>Public Speaking Practice</h3><p>A simple routine for rehearsing and improving your next talk.</p></a>
+      <a class="seo-link-card reveal" href="guides/public-speaking-skills.html"><h3>Public Speaking Skills</h3><p>Ten core skills you can train one at a time.</p></a>
+      <a class="seo-link-card reveal" href="guides/fear-of-public-speaking.html"><h3>Fear of Public Speaking</h3><p>Reduce uncertainty through gradual, realistic practice.</p></a>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta">
+    <div class="final-cta-bg" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <h2 class="reveal">Your next audience is waiting.</h2>
+    <p class="reveal">Be among the first to experience SpeakLab.</p>
+    <button class="btn btn-primary btn-lg reveal" data-open-modal>Join the Waitlist</button>
+    <p class="final-cta-tag reveal">SpeakLab — Practice before you present.</p>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq" id="faq">
+    <h2 class="reveal">Frequently asked questions</h2>
+
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span>What is SpeakLab?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><p>SpeakLab is an AI public speaking simulator designed to let people rehearse presentations and other speaking situations with a simulated audience.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span>Do I need a VR headset?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><p>No. The initial experience is designed for the web using a camera and microphone. More immersive experiences may come later.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span>What can I practice?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><p>Presentations, pitches, speeches, interviews, teaching sessions, business communication, and content creation.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span>Will the audience react?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><p>The product concept is designed around simulated audience reactions such as engagement, confusion, questions, distractions, and challenges.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span>Does SpeakLab analyze my speaking?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><p>The planned product includes analysis of delivery, content, and audience engagement.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span>When will SpeakLab launch?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><p>The product is currently being developed. Join the waitlist to follow the launch.</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-cta">
+    <div>
+      <p class="footer-eyebrow">Ready when you are</p>
+      <h2>Make your next room feel familiar.</h2>
+    </div>
+    <button class="btn btn-primary" data-open-modal>Join the Waitlist <span aria-hidden="true">→</span></button>
+  </div>
+
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#top" class="footer-mark" aria-label="SpeakLab home">
+        <img src="logo.png" width="34" height="34" alt="">
+        <span class="footer-logo">SpeakLab</span>
+      </a>
+      <p>Practice before you present. Build calm, clarity, and confidence before it counts.</p>
+    </div>
+
+    <nav class="footer-links" aria-label="Footer navigation">
+      <p>Explore</p>
+      <a href="#product">Product</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#scenarios">Scenarios</a>
+    </nav>
+
+    <nav class="footer-links" aria-label="Resources">
+      <p>Resources</p>
+      <a href="guides/index.html">Guides</a>
+      <a href="#faq">FAQ</a>
+      <a href="#" data-open-modal>Join the Waitlist</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 SpeakLab. Practice before you present.</p>
+    <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+  </div>
+</footer>
+
+<!-- ============ WAITLIST MODAL ============ -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" id="modal-close" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+
+    <div class="modal-body" id="modal-form-view">
+      <h3 id="modal-title">Be first in the room.</h3>
+      <p class="modal-desc">We're building a new way to practice public speaking with an AI audience. Join the early access list and follow the journey.</p>
+
+      <form id="waitlist-form" novalidate>
+        <div class="field">
+          <label for="wl-email">Email address</label>
+          <input type="email" id="wl-email" name="email" placeholder="you@example.com" required autocomplete="email">
+          <span class="field-error" id="wl-email-error"></span>
+        </div>
+
+        <fieldset class="field">
+          <legend>What would you use SpeakLab for? <span class="optional">(optional)</span></legend>
+          <select id="wl-usecase" name="usecase">
+            <option value="">Select one</option>
+            <option>Presentations</option>
+            <option>Job interviews</option>
+            <option>University</option>
+            <option>Investor pitches</option>
+            <option>Teaching</option>
+            <option>Public speaking</option>
+            <option>Content creation</option>
+            <option>Other</option>
+          </select>
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary btn-full" id="wl-submit">Join the Waitlist</button>
+        <span class="field-error" id="wl-general-error"></span>
+        <p class="modal-privacy">We'll only use your email for SpeakLab updates.</p>
+      </form>
+    </div>
+
+    <div class="modal-body modal-success" id="modal-success-view">
+      <div class="success-icon" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>You're on the list.</h3>
+      <p class="modal-desc">Thanks for joining the SpeakLab journey.</p>
+      <button class="btn btn-secondary btn-full" id="modal-done">Done</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
