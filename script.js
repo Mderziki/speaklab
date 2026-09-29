@@ -1,21 +1,11 @@
 (function () {
   'use strict';
 
-  /* ============ Google Sheets integration ============ =
-     1. Open google-apps-script.gs in Extensions → Apps Script on your sheet.
-     2. Run initialSetup, then setupSheetHeaders (Allow permissions when asked).
-     3. Deploy → New deployment → Web app → Execute as: Me → Who has access: Anyone.
-     4. Paste the deployment's /exec URL below. */
-  var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxqk7SdAOEJ69Gb1jKY4sxjeHIJj6bFkAGrTRlb8dKAiHoiSWAp0CLrKcniiTNcDLAy/exec';
-
   /* ============ Navbar scroll state ============ */
   var nav = document.getElementById('nav');
   function updateNav() {
-    if (window.scrollY > 24) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
+    if (!nav) return;
+    nav.classList.toggle('scrolled', window.scrollY > 24);
   }
   updateNav();
   window.addEventListener('scroll', updateNav, { passive: true });
@@ -25,240 +15,103 @@
   var mobileMenu = document.getElementById('mobile-menu');
 
   function closeMobileMenu() {
+    if (!hamburger || !mobileMenu) return;
     hamburger.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
     mobileMenu.classList.remove('open');
     document.body.style.overflow = '';
   }
 
-  function toggleMobileMenu() {
-    var isOpen = mobileMenu.classList.contains('open');
-    if (isOpen) {
-      closeMobileMenu();
-    } else {
-      hamburger.classList.add('open');
-      hamburger.setAttribute('aria-expanded', 'true');
-      mobileMenu.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function () {
+      var isOpen = mobileMenu.classList.contains('open');
+      hamburger.classList.toggle('open', !isOpen);
+      hamburger.setAttribute('aria-expanded', String(!isOpen));
+      mobileMenu.classList.toggle('open', !isOpen);
+      document.body.style.overflow = isOpen ? '' : 'hidden';
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMobileMenu);
+    });
   }
 
-  hamburger.addEventListener('click', toggleMobileMenu);
-
-  mobileMenu.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', closeMobileMenu);
-  });
-
-  /* ============ Smooth scroll for in-page nav links ============ */
+  /* ============ Smooth scroll for in-page links ============ */
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-    link.addEventListener('click', function (e) {
+    link.addEventListener('click', function (event) {
       var targetId = link.getAttribute('href');
-      if (targetId.length > 1) {
-        var target = document.querySelector(targetId);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
+      var target = targetId && targetId.length > 1 ? document.querySelector(targetId) : null;
+      if (!target) return;
+      event.preventDefault();
+      closeMobileMenu();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
-  /* ============ Waitlist modal ============ */
-  var overlay = document.getElementById('modal-overlay');
-  var modalClose = document.getElementById('modal-close');
-  var formView = document.getElementById('modal-form-view');
-  var successView = document.getElementById('modal-success-view');
-  var form = document.getElementById('waitlist-form');
-  var emailInput = document.getElementById('wl-email');
-  var emailError = document.getElementById('wl-email-error');
-  var modalDone = document.getElementById('modal-done');
-  var lastFocused = null;
+  /* ============ Founding Member PayPal checkout ============ */
+  var paypalCheckout = document.getElementById('paypal-checkout-area');
+  var paypalStatus = document.getElementById('paypal-status');
+  var purchaseSuccess = document.getElementById('purchase-success');
+  var subscriptionId = document.getElementById('subscription-id');
+  var paypalContainer = document.getElementById('paypal-button-container-P-4XN185836X341800XNK5526Y');
 
-  function openModal() {
-    lastFocused = document.activeElement;
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    closeMobileMenu();
-    resetModalView();
-    window.setTimeout(function () {
-      emailInput.focus();
-    }, 300);
+  function setPayPalStatus(message, type) {
+    if (!paypalStatus) return;
+    paypalStatus.textContent = message || '';
+    paypalStatus.className = 'paypal-status' + (type ? ' is-' + type : '');
   }
 
-  function closeModal() {
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-    if (lastFocused) lastFocused.focus();
-  }
-
-  function resetModalView() {
-    formView.classList.remove('hidden');
-    successView.classList.remove('active');
-    emailInput.classList.remove('invalid');
-    emailError.textContent = '';
-    document.getElementById('wl-general-error').textContent = '';
-    form.reset();
-  }
-
-  document.querySelectorAll('[data-open-modal]').forEach(function (btn) {
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
-      openModal();
-    });
-  });
-
-  modalClose.addEventListener('click', closeModal);
-  modalDone.addEventListener('click', closeModal);
-
-  overlay.addEventListener('click', function (e) {
-    if (e.target === overlay) closeModal();
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && overlay.classList.contains('open')) {
-      closeModal();
-    }
-  });
-
-  /* ============ Form validation + Google Sheets submission ============ */
-  var generalError = document.getElementById('wl-general-error');
-  var submitBtn = document.getElementById('wl-submit');
-  var jsonpCounter = 0;
-
-  function isValidEmail(value) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-  }
-
-  /* Local cache only — a convenience record, not the source of truth.
-     The Google Sheet (via Apps Script) is what actually stores signups. */
-  function getStoredEmails() {
+  function showPurchaseSuccess(id) {
+    if (!id || !paypalCheckout || !purchaseSuccess || !subscriptionId) return;
+    subscriptionId.textContent = id;
+    paypalCheckout.hidden = true;
+    purchaseSuccess.hidden = false;
     try {
-      var raw = window.localStorage.getItem('speaklab_waitlist');
-      return raw ? JSON.parse(raw) : [];
+      window.localStorage.setItem('speaklabSubscriptionID', id);
     } catch (err) {
-      return [];
+      /* Storage is optional; the visible confirmation remains available. */
     }
   }
 
-  function cacheEmailLocally(email, usecase) {
+  function restorePurchaseSuccess() {
     try {
-      var list = getStoredEmails();
-      list.push({ email: email, usecase: usecase || null, joinedAt: new Date().toISOString() });
-      window.localStorage.setItem('speaklab_waitlist', JSON.stringify(list));
+      var storedId = window.localStorage.getItem('speaklabSubscriptionID');
+      if (storedId) showPurchaseSuccess(storedId);
     } catch (err) {
-      /* localStorage unavailable — safe to ignore, the sheet still has the record */
+      /* Storage may be unavailable in private browsing modes. */
     }
   }
 
-  function setSubmitting(isSubmitting) {
-    submitBtn.disabled = isSubmitting;
-    submitBtn.textContent = isSubmitting ? 'Joining…' : 'Join the Waitlist';
-  }
+  restorePurchaseSuccess();
 
-  /* JSONP request to the Apps Script web app — avoids CORS issues with a
-     plain <script> tag instead of fetch(), since Apps Script doesn't
-     support cross-origin POST from the browser.
-
-     The request is dispatched immediately and almost always succeeds
-     server-side well before Google's response makes it back to the
-     browser. Rather than make the person wait out that round trip, we
-     show success optimistically after a short grace period and keep
-     listening in the background — a genuine error that arrives late is
-     logged to the console instead of interrupting an already-completed
-     signup. */
-  function submitToGoogleSheets(email, usecase, callback) {
-    if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.indexOf('PASTE_YOUR') !== -1) {
-      /* Not configured yet — keep the demo working locally. */
-      callback({ result: 'success', offline: true });
-      return;
-    }
-
-    jsonpCounter += 1;
-    var callbackName = 'gasWaitlistCallback_' + jsonpCounter;
-    var script = document.createElement('script');
-    var settled = false;
-
-    function invoke(response) {
-      if (settled) return;
-      settled = true;
-      window.clearTimeout(optimisticTimer);
-      callback(response);
-    }
-
-    window[callbackName] = function (response) {
-      var arrivedLate = settled;
-      invoke(response);
-      window.clearTimeout(hardTimeout);
-      delete window[callbackName];
-      if (script.parentNode) script.parentNode.removeChild(script);
-      if (arrivedLate && response && response.result !== 'success') {
-        console.warn('SpeakLab waitlist: ' + (response.error || 'submission failed after optimistic success.'));
+  if (paypalContainer && !purchaseSuccess.hidden) {
+    /* A confirmed browser session does not need a second button render. */
+  } else if (paypalContainer && window.paypal && window.paypal.Buttons) {
+    window.paypal.Buttons({
+      style: {
+        shape: 'rect',
+        color: 'gold',
+        layout: 'vertical',
+        label: 'subscribe'
+      },
+      createSubscription: function (data, actions) {
+        return actions.subscription.create({
+          plan_id: 'P-4XN185836X341800XNK5526Y'
+        });
+      },
+      onApprove: function (data) {
+        showPurchaseSuccess(data.subscriptionID);
+      },
+      onCancel: function () {
+        setPayPalStatus("Checkout was cancelled. You haven't been charged.", 'notice');
+      },
+      onError: function () {
+        setPayPalStatus('Something went wrong while opening PayPal. Please try again.', 'error');
       }
-    };
-
-    script.onerror = function () {
-      invoke({ result: 'error', error: 'Could not reach the server. Please try again.' });
-    };
-
-    /* Give the real response a brief chance to arrive quickly... */
-    var optimisticTimer = window.setTimeout(function () {
-      invoke({ result: 'success', optimistic: true });
-    }, 1200);
-
-    /* ...but never leave the global callback hanging forever. */
-    var hardTimeout = window.setTimeout(function () {
-      delete window[callbackName];
-      if (script.parentNode) script.parentNode.removeChild(script);
-    }, 20000);
-
-    var query =
-      'Email=' + encodeURIComponent(email) +
-      '&UseCase=' + encodeURIComponent(usecase || '') +
-      '&callback=' + encodeURIComponent(callbackName);
-
-    script.src = GOOGLE_SCRIPT_URL + '?' + query;
-    document.body.appendChild(script);
+    }).render('#paypal-button-container-P-4XN185836X341800XNK5526Y');
+  } else if (paypalContainer) {
+    setPayPalStatus('Something went wrong while opening PayPal. Please try again.', 'error');
   }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var email = emailInput.value.trim();
-    var usecase = document.getElementById('wl-usecase').value;
-
-    if (!isValidEmail(email)) {
-      emailInput.classList.add('invalid');
-      emailError.textContent = 'Enter a valid email address.';
-      emailInput.focus();
-      return;
-    }
-
-    emailInput.classList.remove('invalid');
-    emailError.textContent = '';
-    generalError.textContent = '';
-    setSubmitting(true);
-
-    submitToGoogleSheets(email, usecase, function (response) {
-      setSubmitting(false);
-
-      if (response && response.result === 'success') {
-        cacheEmailLocally(email, usecase);
-        showSuccess();
-      } else {
-        generalError.textContent = (response && response.error) || 'Something went wrong. Please try again.';
-      }
-    });
-  });
-
-  emailInput.addEventListener('input', function () {
-    emailInput.classList.remove('invalid');
-    emailError.textContent = '';
-  });
-
-  function showSuccess() {
-    formView.classList.add('hidden');
-    successView.classList.add('active');
-  }
-
   /* ============ FAQ accordion ============ */
   document.querySelectorAll('.faq-item').forEach(function (item) {
     var q = item.querySelector('.faq-q');

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SpeakLab — Practice Before You Present</title>
-<meta name="description" content="SpeakLab is an AI public speaking simulator that lets you practice presentations, pitches, speeches, and interviews with a simulated audience. Join the waitlist.">
+  <meta name="description" content="SpeakLab is an AI public speaking simulator in development. Become a Founding Member for early beta access and 12 months of SpeakLab Pro.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://speaklab.live/">
 
@@ -42,7 +42,7 @@
       <a href="#faq">FAQ</a>
     </nav>
 
-    <button class="btn btn-primary nav-cta" data-open-modal>Join the Waitlist</button>
+    <a class="btn btn-primary nav-cta" href="#founding-member">Become a Founding Member</a>
 
     <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
@@ -59,7 +59,7 @@
     <a href="guides/index.html">Guides</a>
     <a href="#faq">FAQ</a>
   </nav>
-  <button class="btn btn-primary" data-open-modal>Join the Waitlist</button>
+  <a class="btn btn-primary" href="#founding-member">Get Early Access — $39</a>
 </div>
 
 <main id="top">
@@ -67,7 +67,7 @@
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="hero-inner hero-intro">
-      <p class="eyebrow reveal">AI Public Speaking Simulator</p>
+      <p class="eyebrow reveal">Founding Member Access</p>
       <h1 class="hero-headline reveal">Practice Before</h1>
     </div>
 
@@ -96,8 +96,9 @@
       <p class="hero-headline reveal">You Present.</p>
       <p class="hero-sub reveal">Step into a simulated audience and rehearse your presentation before the real moment.</p>
       <div class="hero-actions reveal">
-        <button class="btn btn-primary btn-lg" data-open-modal>Join the Waitlist</button>
-        <p class="hero-microcopy">Be among the first to experience SpeakLab.</p>
+        <a class="btn btn-primary btn-lg" href="#founding-member">Become a Founding Member — $39</a>
+        <p class="hero-microcopy">12 months of SpeakLab Pro • Early beta access • Help shape the product</p>
+        <p class="hero-development-note">SpeakLab is currently in development. Founding members are supporting the early development of the product and will receive access as the beta becomes available.</p>
       </div>
     </div>
   </section>
@@ -309,14 +310,59 @@
     </div>
   </section>
 
+  <!-- ============ FOUNDING MEMBER ============ -->
+  <section class="founding-member" id="founding-member">
+    <div class="founding-member-intro">
+      <p class="eyebrow reveal">Pre-sale / early access</p>
+      <h2 class="reveal">Become a SpeakLab Founding Member</h2>
+      <p class="reveal">Help shape SpeakLab from the beginning and get 12 months of Pro access for $39.</p>
+    </div>
+
+    <article class="founding-card reveal">
+      <div class="founding-card-glow" aria-hidden="true"></div>
+      <div class="founding-card-content">
+        <p class="founding-badge">Founding Member</p>
+        <div class="founding-price"><span>$39</span><p>12 months of SpeakLab Pro</p></div>
+        <ul class="founding-benefits">
+          <li>12 months of SpeakLab Pro</li>
+          <li>Private beta / early access</li>
+          <li>Access to the first public-speaking scenarios</li>
+          <li>Advanced AI feedback as features become available</li>
+          <li>Early access to new audience simulations</li>
+          <li>Direct input into features and scenarios</li>
+          <li>Founding Member status</li>
+        </ul>
+        <p class="founding-description">SpeakLab is currently being built. By becoming a Founding Member, you're pre-purchasing access to the product and helping support its early development.</p>
+
+        <div class="paypal-checkout" id="paypal-checkout-area">
+          <div id="paypal-button-container-P-4XN185836X341800XNK5526Y"></div>
+          <p class="paypal-status" id="paypal-status" aria-live="polite"></p>
+          <!-- IMPORTANT: Confirm PayPal plan billing/renewal configuration before launch -->
+          <p class="paypal-disclosure">The billing and renewal terms for this subscription are shown by PayPal before you approve your purchase. You can manage or cancel the subscription through PayPal.</p>
+        </div>
+
+        <div class="purchase-success" id="purchase-success" hidden aria-live="polite">
+          <div class="purchase-success-icon" aria-hidden="true">✓</div>
+          <h3>You're a SpeakLab Founding Member 🎉</h3>
+          <p>Thank you for supporting SpeakLab at the beginning.</p>
+          <p>Your Founding Member subscription has been confirmed.</p>
+          <p>We'll use your PayPal account information for the transaction. Product-access instructions will be provided as SpeakLab's beta becomes available.</p>
+          <p class="subscription-id"><strong>Subscription ID:</strong> <code id="subscription-id"></code></p>
+          <p class="save-subscription-note">Save your subscription ID for reference.</p>
+        </div>
+      </div>
+    </article>
+  </section>
+
   <!-- ============ FINAL CTA ============ -->
   <section class="final-cta">
     <div class="final-cta-bg" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
     </div>
-    <h2 class="reveal">Your next audience is waiting.</h2>
-    <p class="reveal">Be among the first to experience SpeakLab.</p>
-    <button class="btn btn-primary btn-lg reveal" data-open-modal>Join the Waitlist</button>
+    <h2 class="reveal">Ready to practice before the real moment?</h2>
+    <p class="reveal">Become a SpeakLab Founding Member and help shape a better way to practice public speaking.</p>
+    <p class="final-cta-price reveal">$39 • 12 months of SpeakLab Pro</p>
+    <a class="btn btn-primary btn-lg reveal" href="#founding-member">Become a Founding Member</a>
     <p class="final-cta-tag reveal">SpeakLab — Practice before you present.</p>
   </section>
 
@@ -325,48 +371,11 @@
     <h2 class="reveal">Frequently asked questions</h2>
 
     <div class="faq-list">
-      <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">
-          <span>What is SpeakLab?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-a"><p>SpeakLab is an AI public speaking simulator designed to let people rehearse presentations and other speaking situations with a simulated audience.</p></div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">
-          <span>Do I need a VR headset?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-a"><p>No. The initial experience is designed for the web using a camera and microphone. More immersive experiences may come later.</p></div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">
-          <span>What can I practice?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-a"><p>Presentations, pitches, speeches, interviews, teaching sessions, business communication, and content creation.</p></div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">
-          <span>Will the audience react?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-a"><p>The product concept is designed around simulated audience reactions such as engagement, confusion, questions, distractions, and challenges.</p></div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">
-          <span>Does SpeakLab analyze my speaking?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-a"><p>The planned product includes analysis of delivery, content, and audience engagement.</p></div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">
-          <span>When will SpeakLab launch?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-a"><p>The product is currently being developed. Join the waitlist to follow the launch.</p></div>
-      </div>
+      <div class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>What am I purchasing?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a"><p>You're purchasing Founding Member access, including 12 months of SpeakLab Pro as the product becomes available.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>Is SpeakLab available now?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a"><p>SpeakLab is currently in development. Founding Members will receive early access as beta versions become available.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>Why pay before launch?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a"><p>The Founding Member program is for early supporters who want to help shape the product and receive early access and 12 months of Pro membership.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>When does my access start?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a"><p>We'll contact Founding Members as beta access becomes available. More detailed access information will be shared directly with early supporters.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>Can I cancel my PayPal subscription?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-a"><p>Subscription management and cancellation are handled through PayPal. PayPal shows the plan's billing and renewal terms before approval, and you can manage the subscription there.</p></div></div>
     </div>
   </section>
 
@@ -379,7 +388,7 @@
       <p class="footer-eyebrow">Ready when you are</p>
       <h2>Make your next room feel familiar.</h2>
     </div>
-    <button class="btn btn-primary" data-open-modal>Join the Waitlist <span aria-hidden="true">→</span></button>
+    <a class="btn btn-primary" href="#founding-member">Become a Founding Member <span aria-hidden="true">→</span></a>
   </div>
 
   <div class="footer-top">
@@ -402,7 +411,7 @@
       <p>Resources</p>
       <a href="guides/index.html">Guides</a>
       <a href="#faq">FAQ</a>
-      <a href="#" data-open-modal>Join the Waitlist</a>
+      <a href="#founding-member">Founding Member</a>
     </nav>
   </div>
   <div class="footer-bottom">
@@ -411,56 +420,7 @@
   </div>
 </footer>
 
-<!-- ============ WAITLIST MODAL ============ -->
-<div class="modal-overlay" id="modal-overlay">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <button class="modal-close" id="modal-close" aria-label="Close">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    </button>
-
-    <div class="modal-body" id="modal-form-view">
-      <h3 id="modal-title">Be first in the room.</h3>
-      <p class="modal-desc">We're building a new way to practice public speaking with an AI audience. Join the early access list and follow the journey.</p>
-
-      <form id="waitlist-form" novalidate>
-        <div class="field">
-          <label for="wl-email">Email address</label>
-          <input type="email" id="wl-email" name="email" placeholder="you@example.com" required autocomplete="email">
-          <span class="field-error" id="wl-email-error"></span>
-        </div>
-
-        <fieldset class="field">
-          <legend>What would you use SpeakLab for? <span class="optional">(optional)</span></legend>
-          <select id="wl-usecase" name="usecase">
-            <option value="">Select one</option>
-            <option>Presentations</option>
-            <option>Job interviews</option>
-            <option>University</option>
-            <option>Investor pitches</option>
-            <option>Teaching</option>
-            <option>Public speaking</option>
-            <option>Content creation</option>
-            <option>Other</option>
-          </select>
-        </fieldset>
-
-        <button type="submit" class="btn btn-primary btn-full" id="wl-submit">Join the Waitlist</button>
-        <span class="field-error" id="wl-general-error"></span>
-        <p class="modal-privacy">We'll only use your email for SpeakLab updates.</p>
-      </form>
-    </div>
-
-    <div class="modal-body modal-success" id="modal-success-view">
-      <div class="success-icon" aria-hidden="true">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <h3>You're on the list.</h3>
-      <p class="modal-desc">Thanks for joining the SpeakLab journey.</p>
-      <button class="btn btn-secondary btn-full" id="modal-done">Done</button>
-    </div>
-  </div>
-</div>
-
+<script src="https://www.paypal.com/sdk/js?client-id=ARZwaJmJ5it0sWIInUt-LYzLHCZEtYHApaHqNmXQ765HWqlzoztxLMV8uyCnqxIbTrekPY1Pex6jmpMS&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 <script src="script.js"></script>
 </body>
 </html>
